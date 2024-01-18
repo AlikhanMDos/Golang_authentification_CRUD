@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style_cabinet.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Cabinet</title>
+</head>
+<body>
+<div class="wrapper">
+    <h1>Home</h1>
+    <p>Hello, <span id="username">{{ . }}</span></p>
+    <!-- Replace 'Name' with the actual username from the database -->
+
+    <form method="post" action="/cabinet">
+        <input type="hidden" name="action" value="update-password">
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" name="newPassword" required>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+        <button type="submit">Update Password</button>
+    </form>
+
+    <form method="post" action="/cabinet" onsubmit="deleteAccount();">
+        <input type="hidden" name="action" value="delete-account">
+        <button type="submit">Delete Account</button>
+    </form>
+</div>
+
+<script>
+    function deleteAccount() {
+        // Implement logic to delete the account from the database
+        alert('Account deleted'); // Replace this with actual deletion logic
+        window.location.href = "login.html"; // Redirect to the login page after deletion
+    }
+</script>
+</body>
+</html>
